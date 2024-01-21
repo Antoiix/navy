@@ -88,10 +88,6 @@ int main(int ac, char **av)
         return 84;
     if (verif_navy(navy_pos) == 84)
         return 84;
-    printf("%s, %s, %s\n%s, %s, %s\n%s, %s, %s\n%s, %s, %s\n",
-        navy_pos[0], navy_pos[1], navy_pos[2], navy_pos[3], navy_pos[4],
-        navy_pos[5], navy_pos[6], navy_pos[7], navy_pos[8], navy_pos[9],
-        navy_pos[10], navy_pos[11]);
     all_free(navy_pos);
     return 0;
 }
