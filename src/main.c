@@ -13,14 +13,15 @@ char **parse_pos(char *file_path)
     int rd;
     char *buff;
     char **arr;
-    struct stat s;
+    int size = lseek(fd, 0, SEEK_END);
 
+    close(fd);
+    fd = open(file_path, O_RDONLY);
     if (fd < 0)
         return NULL;
-    stat(file_path, &s);
-    buff = malloc(sizeof(char) * (s.st_size + 1));
-    buff[s.st_size] = '\0';
-    rd = read(fd, buff, sizeof(char) * (s.st_size + 1));
+    buff = malloc(sizeof(char) * (size + 1));
+    buff[size] = '\0';
+    rd = read(fd, buff, sizeof(char) * (size + 1));
     if (rd < 0)
         return NULL;
     close(fd);
@@ -80,14 +81,21 @@ int verif_navy(char **navy_pos)
 int main(int ac, char **av)
 {
     char **navy_pos;
+    char *pid_enemy = NULL;
 
-    if (ac < 2)
+    if (ac != 2 && ac != 3)
         return 84;
-    navy_pos = parse_pos(av[1]);
+    if (ac == 2)
+        navy_pos = parse_pos(av[1]);
+    if (ac == 3) {
+        navy_pos = parse_pos(av[2]);
+        pid_enemy = my_strdup(av[1]);
+    }
     if (navy_pos == NULL)
         return 84;
     if (verif_navy(navy_pos) == 84)
         return 84;
+    navy_launch(navy_pos, ac, pid_enemy);
     all_free(navy_pos);
     return 0;
 }
