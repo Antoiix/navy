@@ -27,6 +27,7 @@ void game_conditionsp1(int enemy_pid, int get_value,
         add_binary(CLEAR);
     }
     send_att_p1(get_value, map, &map_turn, enemy_pid);
+    win_loop(map, enemy_pid, empty_map, get_value);
 }
 
 void game_conditionsp2(int enemy_pid, int get_value,
@@ -48,4 +49,5 @@ void game_conditionsp2(int enemy_pid, int get_value,
     hit_reaction_p2(get_value, ints, empty_map, buf);
     miss_reaction_p2(get_value, ints, empty_map, buf);
     send_att_p2(get_value, map, enemy_pid);
+    win_loop(map, enemy_pid, empty_map, get_value);
 }

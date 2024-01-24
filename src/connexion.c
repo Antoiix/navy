@@ -36,7 +36,7 @@ void launch_p1(char **navy_pos)
     while (1) {
         get_value = add_binary(GET);
         launcher_p1(empty_map, map, navy_pos, get_value);
-        if (get_value == 1 || get_value == 2)
+        if (get_value == 166 || get_value == 199)
             return;
     }
 }
@@ -59,7 +59,7 @@ void launch_p2(char **navy_pos, char *pid_enemy)
     while (1) {
         get_value = add_binary(GET);
         launcher_p2(empty_map, map, navy_pos, get_value);
-        if (get_value == 1 || get_value == 2)
+        if (get_value == 166 || get_value == 199)
             return;
     }
 }

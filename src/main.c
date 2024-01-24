@@ -95,8 +95,8 @@ int main(int ac, char **av)
         return 84;
     navy_launch(navy_pos, ac, pid_enemy);
     all_free(navy_pos);
-    if (add_binary(GET) == 1)
+    if (add_binary(GET) == 166)
         return 0;
-    if (add_binary(GET) == 2)
+    if (add_binary(GET) == 199)
         return 1;
 }
