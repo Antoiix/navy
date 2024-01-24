@@ -26,7 +26,7 @@ void game_conditionsp1(int enemy_pid, int get_value,
         mini_printf("waiting for enemy's attack...\n\n");
         add_binary(CLEAR);
     }
-    send_att_p1(get_value, map, map_turn, enemy_pid);
+    send_att_p1(get_value, map, &map_turn, enemy_pid);
 }
 
 void game_conditionsp2(int enemy_pid, int get_value,

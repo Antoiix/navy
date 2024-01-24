@@ -91,15 +91,12 @@ int main(int ac, char **av)
         navy_pos = parse_pos(av[2]);
         pid_enemy = my_strdup(av[1]);
     }
-    if (navy_pos == NULL)
-        return 84;
-    if (verif_navy(navy_pos) == 84)
+    if (verif_navy(navy_pos) == 84 || navy_pos == NULL)
         return 84;
     navy_launch(navy_pos, ac, pid_enemy);
     all_free(navy_pos);
-    if (add_binary(GET) == 1) {
+    if (add_binary(GET) == 1)
         return 0;
-    }
     if (add_binary(GET) == 2)
         return 1;
 }
