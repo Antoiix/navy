@@ -10,15 +10,24 @@
 int add_binary(op_bin_t a)
 {
     static int data = 0;
+    static int bit_check = 0;
 
-    if (a == GET)
-        return data;
     if (a == CLEAR)
         data = 0;
-    if (a == ADD_ZERO)
+    if (a == ADD_ZERO) {
+        bit_check = bit_check + 1;
         data = (data << 1) | 0;
-    if (a == ADD_ONE)
+    }
+    if (a == ADD_ONE) {
+        bit_check = bit_check + 1;
         data = (data << 1) | 1;
+    }
+    if (a == GET) {
+        if (bit_check == 8 || bit_check == 0) {
+            bit_check = 0;
+            return data;
+        }
+    }
     return 0;
 }
 

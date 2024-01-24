@@ -46,7 +46,19 @@ int add_pid_enemy(int a);
 void print_maps(char **map, char **empty_map);
 void init_maps(char **map, char **empty_map, char **navy_pos);
 int place_to_int(char *place);
-void launcher_p1(char **empty_map, char **map, char **navy_pos);
-void launcher_p2(char **empty_map, char **map, char **navy_pos, int enemy_pid);
+void launcher_p1(char **empty_map, char **map, char **navy_pos, int get_value);
+void launcher_p2(char **empty_map, char **map, char **navy_pos, int get_value);
+void game_conditionsp1(int enemy_pid, int get_value,
+    char **empty_map, char **map);
+void game_conditionsp2(int enemy_pid, int get_value,
+    char **empty_map, char **map);
+void place_p1_attack(int ints[3], int get_value, size_t *size, char **buf);
+void hit_reaction_p1(int get_value, int ints[3], char **empty_map, char *buf);
+void miss_reaction_p1(int get_value, int ints[3], char **empty_map, char *buf);
+void send_att_p1(int get_value, char **map, int map_turn, int enemy_pid);
+void place_p2_attack(int ints[4], int get_value, size_t *size, char **buf);
+void miss_reaction_p2(int get_value, int ints[4], char **empty_map, char *buf);
+void hit_reaction_p2(int get_value, int ints[4], char **empty_map, char *buf);
+void send_att_p2(int get_value, char **map, int enemy_pid);
 
 #endif

@@ -16,7 +16,7 @@ void int_to_signal(int decimal_val, int enemy_pid)
         decimal_val = decimal_val >> 1;
     }
     for (int i = 0; i < 8; i++) {
-        usleep(1000);
+        usleep(10000);
         if (bin[i] == 0) {
             kill(enemy_pid, SIGUSR1);
         }
