@@ -20,7 +20,14 @@
     #include <fcntl.h>
     #include "sys/stat.h"
     #include "signal.h"
+    #define GET_PID (-1)
 
+typedef enum op_binary {
+    ADD_ZERO,
+    ADD_ONE,
+    GET,
+    CLEAR
+} op_bin_t;
 char **my_str_to_word_array(char const *str, char *pattern);
 int my_strlen(char const *str);
 int my_getnbr(char const *str);
@@ -34,6 +41,12 @@ void navy_launch(char **navy_pos, int ac, char *pid_enemy);
 char *my_strdup(char const *src);
 void int_to_signal(int decimal_val, int enemy_pid);
 void handler(int signo, siginfo_t *info, void *context);
-int add_binary(int a);
+int add_binary(op_bin_t a);
+int add_pid_enemy(int a);
+void print_maps(char **map, char **empty_map);
+void init_maps(char **map, char **empty_map, char **navy_pos);
+int place_to_int(char *place);
+void launcher_p1(char **empty_map, char **map, char **navy_pos);
+void launcher_p2(char **empty_map, char **map, char **navy_pos, int enemy_pid);
 
 #endif
