@@ -18,8 +18,8 @@ void place_p1_attack(int ints[3], int get_value, size_t *size, char **buf)
         getline(buf, size, stdin);
         ints[0] = place_to_int(*buf);
         if ((ints[0] >= 11 && ints[0] <= 88) && ints[0] % 10 != 0 &&
-        ints[0] % 10 != 9 && ('A' <= *buf[0]) && ('H' >= *buf[0]) &&
-        ('1' <= *buf[1]) && ('8' >= *buf[1]) && my_strlen(*buf) == 3) {
+        ints[0] % 10 != 9 && ('A' <= (*buf)[0]) && ('H' >= (*buf)[0]) &&
+        ('1' <= (*buf)[1]) && ('8' >= (*buf)[1]) && my_strlen(*buf) == 3) {
             ints[2] = 0;
             add_binary(CLEAR);
             int_to_signal(place_to_int(*buf), add_pid_enemy(GET_PID));
