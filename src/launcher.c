@@ -9,14 +9,6 @@
 
 void launcher_p1(char **empty_map, char **map, char **navy_pos, int get_value)
 {
-    if (get_value == 166) {
-        mini_printf("I won\n");
-        return;
-    }
-    if (get_value == 199) {
-        mini_printf("Enemy won\n");
-        return;
-    }
     if (get_value == 255) {
         mini_printf("enemy connected\n\n");
         add_binary(CLEAR);
@@ -29,14 +21,6 @@ void launcher_p1(char **empty_map, char **map, char **navy_pos, int get_value)
 
 void launcher_p2(char **empty_map, char **map, char **navy_pos, int get_value)
 {
-    if (get_value == 166) {
-        mini_printf("I won\n");
-        return;
-    }
-    if (get_value == 199) {
-        mini_printf("Enemy won\n");
-        return;
-    }
     if (get_value == 255) {
         mini_printf("successfully connected to enemy\n\n");
         add_binary(CLEAR);

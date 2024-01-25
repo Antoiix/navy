@@ -60,6 +60,7 @@ void place_p2_attack(int ints[4], int get_value, size_t *size, char **buf);
 void miss_reaction_p2(int get_value, int ints[4], char **empty_map, char *buf);
 void hit_reaction_p2(int get_value, int ints[4], char **empty_map, char *buf);
 void send_att_p2(int get_value, char **map, int enemy_pid);
+void lose_loop(char **map, int enemy_pid, char **empty_map, int get_value);
 void win_loop(char **map, int enemy_pid, char **empty_map, int get_value);
 
 #endif

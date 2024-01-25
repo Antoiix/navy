@@ -35,6 +35,10 @@ int add_pid_enemy(int a)
 {
     static int pid_enemy = 0;
 
+    if (a == -2)
+        pid_enemy = -2;
+    if (a == -3)
+        pid_enemy = -3;
     if (a == -1)
         return pid_enemy;
     else

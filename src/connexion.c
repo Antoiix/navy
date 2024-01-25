@@ -33,11 +33,9 @@ void launch_p1(char **navy_pos)
     act.sa_flags = SA_SIGINFO;
     sigaction(SIGUSR1, &act, NULL);
     sigaction(SIGUSR2, &act, NULL);
-    while (1) {
+    while (add_pid_enemy(GET_PID) >= 0) {
         get_value = add_binary(GET);
         launcher_p1(empty_map, map, navy_pos, get_value);
-        if (get_value == 166 || get_value == 199)
-            return;
     }
 }
 
@@ -56,11 +54,9 @@ void launch_p2(char **navy_pos, char *pid_enemy)
     sigaction(SIGUSR1, &act, NULL);
     sigaction(SIGUSR2, &act, NULL);
     int_to_signal(255, my_getnbr(pid_enemy));
-    while (1) {
+    while (add_pid_enemy(GET_PID) >= 0) {
         get_value = add_binary(GET);
         launcher_p2(empty_map, map, navy_pos, get_value);
-        if (get_value == 166 || get_value == 199)
-            return;
     }
 }
 
