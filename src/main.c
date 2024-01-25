@@ -44,13 +44,18 @@ void all_free(char **navy_pos)
 
 int check_pos(char **navy_pos, int i, int *ship_check)
 {
-    if (my_isalpha(navy_pos[i + 1][0]) == 0 ||
-    my_isnum(navy_pos[i + 1][1]) == 0)
-        return 84;
-    if (my_isalpha(navy_pos[i + 2][0]) == 0 ||
-        my_isnum(navy_pos[i + 2][1]) == 0)
-        return 84;
-    if (my_getnbr(navy_pos[i]) < 2 || my_getnbr(navy_pos[i]) > 5)
+    int exit = 0;
+
+    if ((navy_pos[i + 1][0] >= 'A') && ('H' >= navy_pos[i + 1][0]) &&
+    ('1' <= navy_pos[i + 1][1]) && ('8' >= navy_pos[i + 1][1]) &&
+    my_strlen(navy_pos[i + 1]) == 2)
+        exit++;
+    if ((navy_pos[i + 2][0] >= 'A') && ('H' >= navy_pos[i + 2][0]) &&
+    ('1' <= navy_pos[i + 2][1]) && ('8' >= navy_pos[i + 2][1]) &&
+    my_strlen(navy_pos[i + 2]) == 2)
+        exit++;
+    if (my_getnbr(navy_pos[i]) < 2 || my_getnbr(navy_pos[i]) > 5
+        || exit != 2)
         return 84;
     else
         ship_check[my_getnbr(navy_pos[i]) - 2] = 1;
