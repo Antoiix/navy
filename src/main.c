@@ -46,14 +46,8 @@ int check_pos(char **navy_pos, int i, int *ship_check)
 {
     int exit = 0;
 
-    if ((navy_pos[i + 1][0] >= 'A') && ('H' >= navy_pos[i + 1][0]) &&
-    ('1' <= navy_pos[i + 1][1]) && ('8' >= navy_pos[i + 1][1]) &&
-    my_strlen(navy_pos[i + 1]) == 2)
-        exit++;
-    if ((navy_pos[i + 2][0] >= 'A') && ('H' >= navy_pos[i + 2][0]) &&
-    ('1' <= navy_pos[i + 2][1]) && ('8' >= navy_pos[i + 2][1]) &&
-    my_strlen(navy_pos[i + 2]) == 2)
-        exit++;
+    if (check_correct_pos(navy_pos, &exit, i) == 84)
+        return 84;
     if (my_getnbr(navy_pos[i]) < 2 || my_getnbr(navy_pos[i]) > 5
         || exit != 2)
         return 84;
@@ -96,7 +90,7 @@ int main(int ac, char **av)
         navy_pos = parse_pos(av[2]);
         pid_enemy = my_strdup(av[1]);
     }
-    if (verif_navy(navy_pos) == 84 || navy_pos == NULL)
+    if (navy_pos == NULL || verif_navy(navy_pos) == 84)
         return 84;
     navy_launch(navy_pos, ac, pid_enemy);
     all_free(navy_pos);

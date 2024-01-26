@@ -46,7 +46,7 @@ void init_maps(char **map, char **empty_map, char **navy_pos)
         for (int j = 0; j < 8; j++) {
             map[i][j] = '.';
         }
-        map[i][9] = '\0';
+        map[i][8] = '\0';
     }
     fill_map(map, navy_pos);
     for (int i = 0; i < 8; i++) {
@@ -54,7 +54,7 @@ void init_maps(char **map, char **empty_map, char **navy_pos)
         for (int j = 0; j < 8; j++) {
             empty_map[i][j] = '.';
         }
-        empty_map[i][9] = '\0';
+        empty_map[i][8] = '\0';
     }
 }
 
