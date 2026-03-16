@@ -2,7 +2,7 @@
 ## EPITECH PROJECT, 2023
 ## Makefile
 ## File description:
-## abc
+##  abc
 ##
 
 SRC = $(shell find src/ -type f -name "*.c")
