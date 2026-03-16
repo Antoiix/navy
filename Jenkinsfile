@@ -14,6 +14,14 @@ pipeline {
             }
         }
 
+	stage('Debug Git') {
+            steps {
+                sh 'git rev-parse HEAD'
+                sh 'git branch'
+                sh 'git remote -v'
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building project...'
