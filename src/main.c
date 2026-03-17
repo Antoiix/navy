@@ -98,5 +98,5 @@ int main(int ac, char **av)
         return 0;
     if (add_pid_enemy(GET_PID) == -3)
         return 1;
-    return 0
+    return 0;
 }
