@@ -35,6 +35,11 @@ pipeline {
                 sh 'make clean'
             }
         }
+        stage('Debug') {
+            steps {
+                echo "BRANCH_NAME = ${env.BRANCH_NAME}"
+            }
+        }
     }
 
     post {
